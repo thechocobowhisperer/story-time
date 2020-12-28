@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="styles.css">
+   </head>
+   <body>
+      <p>Stories</p>
+      <div>
+         <label for="title">Title</label>
+         <input type="text" id="storyName" name="storyName"></input>
+         <label for="length">Length</label>
+         <input type="number" id="storyLength" name="storyLength"></input>
+         <button onclick="addStory()">Add Story</button>
+      </div>
+      <div>
+         <label for="time">When</label>
+         <input type="number" id="time" name="time"></input>
+         <label for="eventDesc">Description</label>
+         <input type="text" id="eventDesc" name="eventDesc"></input>
+         <button onclick="addEvent();">Add Event</button>
+      </div>
+      <script src="Main.js"></script>
+      <div class="events" id="events">
+         <div class="row">
+            <div class="column">Time</div>
+            <div class="column">Description</div>
+         </div>
+      </div>
+   </body>
+</html>

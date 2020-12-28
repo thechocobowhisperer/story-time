@@ -1,0 +1,23 @@
+.column {
+   padding-left: 15px;
+   float: left;
+   width: 15%;
+}
+
+div {
+   border-radius: 5px;
+   border-width:10px;
+   border-color: black;
+   
+}
+
+.row {
+   background-color:cornflowerblue;
+   margin:6px;
+}
+
+.row:after {
+   content: "";
+   display:table;
+   clear:both;
+}
