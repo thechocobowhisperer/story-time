@@ -10,10 +10,10 @@ class Story {
       var when = event.time;
       var desc = event.description;
       var tags = event.tags;
-      console.log("Time: "+when);
-      console.log("Description: "+desc);
+      // console.log("Time: "+when);
+      // console.log("Description: "+desc);
       if(!this.events.hasOwnProperty(when)){
-         console.log(this.events);
+         // console.log(this.events);
          this.events[when]={description:desc,tags:tags}
          return true;
       }
@@ -56,36 +56,49 @@ function addStory(){
    story = new Story(storyName, storyLength);
 }
 
-function addEvent(){
+function populateEntries(){
+   // get entries div
+   var entries = document.getElementById("events");
+   
+   // Add structured row using event properties
+   // do not allow events with the same time to be added to events div
+
+   entries.innerHTML ='<div class="events" id="events">'+
+   '<div class="row">'+'<div class="column">Time</div>'+
+   '<div class="column">Description</div>'+
+   '</div>'+'</div>';
+   var keysList = Object.keys(story.events);
+   keysList.forEach((x)=>{
+      // console.log(story.events[x].description)
+      entries.innerHTML +='<div class="row"><div class="column">'+x+
+      '</div><div class="column">'+story.events[x].description+'</div></div>';
+   });
+   
+   
+   // add item to events dict when added to events div
+   
+   // sort row elements by time
+   
+   // convert time?
+}
+
+function addToDict(){
    // get time entry
    var time = document.getElementById("time").value;
    // get event entry
    var entry = document.getElementById("eventDesc").value;
-   // get entries div
-   var entries = document.getElementById("events");
    
    //create new event from user input
    var event = new Event(time, entry);
-
-   // Add structured row using event properties
-   //TODO do not allow events with the same time to be added to events div
-   //? Create event rows in events div from events dictionary 
-   //? if so, an existence check isn't necessary due to the check in
-   //? Story.addEntry()
-   entries.innerHTML +='<div class="row"><div class="column">'+event.time+
-   '</div><div class="column">'+event.description+'</div></div>';
-
-   // add item to events dict when added to events div
    story.addEntry(event);
-   console.log("title : "+story.title);
-   console.log("length : "+story.length);
-   
-   // sort row elements by time
-
-   // convert time?
+   // console.log("title : "+story.title);
+   // console.log("length : "+story.length);
+   populateEntries();
 }
 
-//TODO sort items in events div by time
+//TODO create an edit function to change time or description
+function editEvent(){
+   
+}
 //TODO add color per tag
 //TODO make story persistent
-//TODO create an edit function to change time or description
