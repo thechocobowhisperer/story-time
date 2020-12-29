@@ -55,6 +55,7 @@ function addStory(){
    //get story info
    var storyName = document.getElementById("storyName").value;
    var storyLength = document.getElementById("storyLength").value;
+   document.getElementById('time').setAttribute("max",storyLength);
    story = new Story(storyName, storyLength);
 }
 
