@@ -21,9 +21,11 @@ class Story {
       return false;
    }
 
-   removeEntry(time){
-      if(events.hasKey(time)){
-         delete events[time];
+   removeEntry(){
+      var eventTime = document.getElementById("time").value;
+      if(this.events.hasOwnProperty(eventTime)){
+         delete this.events[eventTime];
+         populateEntries();
          return true;
       }
       return false;
